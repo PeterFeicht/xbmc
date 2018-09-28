@@ -160,7 +160,7 @@ bool CWin32SMBDirectory::GetDirectory(const CURL& url, CFileItemList &items)
     else
       pItem->SetPath(pathWithSlash + itemName);
 
-    if ((findData.dwFileAttributes & (FILE_ATTRIBUTE_HIDDEN | FILE_ATTRIBUTE_SYSTEM)) != 0
+    if ((findData.dwFileAttributes & FILE_ATTRIBUTE_HIDDEN) != 0
           || itemName.front() == '.') // mark files starting from dot as hidden
       pItem->SetProperty("file:hidden", true);
 
